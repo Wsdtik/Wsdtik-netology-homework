@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('<str:dish_name>/', views.get_recipe), # type: ignore
+    path('', views.index, name='index'),
+    path('<str:dish_name>/', views.get_recipe), 
 ]

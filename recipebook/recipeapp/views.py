@@ -1,4 +1,19 @@
 from django.http import HttpResponse, HttpRequest
+from django.shortcuts import render
+
+def index(request: HttpRequest) -> HttpResponse: 
+    try:
+        return render(request, './recipeapp/index.html')
+    except Exception:
+        return HttpResponse("""Главная страница
+        <h1>просмотр рецептов по Url 
+        <ul>
+            <li>/omlet </li>
+            <li>/pasta </li>
+            <li>/buter </li>
+        </ul>
+        </h1>
+                            """)
 
 DATA = {
     'omlet': {
@@ -35,4 +50,4 @@ def get_recipe(request: HttpRequest, dish_name: str) -> HttpResponse:
 
     response_text = '\n'.join(f'{ingredient}: {amount}' for ingredient, amount in ingredients.items())
 
-    return HttpResponse(response_text, content_type='text/plain')
+    return HttpResponse(response_text, content_type='text/plain; charset=utf-8')
