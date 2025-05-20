@@ -3,17 +3,9 @@ from django.shortcuts import render
 
 def index(request: HttpRequest) -> HttpResponse: 
     try:
-        return render(request, './recipeapp/index.html')
-    except Exception:
-        return HttpResponse("""Главная страница
-        <h1>просмотр рецептов по Url 
-        <ul>
-            <li>/omlet </li>
-            <li>/pasta </li>
-            <li>/buter </li>
-        </ul>
-        </h1>
-                            """)
+        return render(request, 'index.html')
+   except (ValueError, TypeError):
+        return HttpResponse('Page not found', status=400)
 
 DATA = {
     'omlet': {
