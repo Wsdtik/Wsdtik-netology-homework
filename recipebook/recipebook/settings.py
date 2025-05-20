@@ -54,7 +54,7 @@ ROOT_URLCONF = 'recipebook.urls'
 TEMPLATES: list[dict[str, str | bool | dict[str, list[str]] | list[str]]] = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["./recipebook/recipeapp/templates/recipeapp/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
